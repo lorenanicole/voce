@@ -136,12 +136,16 @@
         </span><!-- end of .site-name -->
 
       </div><!-- end of #logo -->
-        <div><!-- class = 'tagline' removed -->
+        <div class="tagline">
             {% if TAGS_URL %}
               {% for tag, articles in tags|sort %}
                 <a href="{{ SITEURL }}/{{ tag.url }}" {{ 'class="active"' if  output_file == tag.url }}>{{ tag }} ({{ articles|count }})</a> &#124; 
               {% endfor %}
-            {% endif %} 
+            {% endif %}
+            
+            {% if ARCHIVES_URL %}
+                <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}" {{ 'class="active"' if  output_file == ARCHIVES_URL }}>{{ 'Archives ('+ articles|count|string + ')' if  articles|count > all_articles|count  else 'Archives (' + all_articles|count|string + ')'}}</a>
+            {% endif %}
         </div>
     </div>
 

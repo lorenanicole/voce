@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block metatitle %}{{ page.title|striptags|escape }}{% endblock %}
+{% block title %}{{ page.title|striptags|escape }}{% endblock %}
+{% block description %}{{ page.summary|striptags|escape }}{% endblock %}
+
+
+{% block content %}
+<article>
+  <div class="blog-item-wrap">
+    <div class="post-inner-content">
+    {% if page.slug != 'about' %}
+      <header class="entry-header page-header">
+        <h1 class="entry-title">{{ page.summary }}</h1>
+      </header><!-- .entry-header -->
+    {% endif %}
+      <div class="entry-content">
+        {{ page.content }}
+      </div><!-- .entry-content -->
+      <br /><br />
+    </div>
+  </div>
+</article><!-- #post-## -->
+{% endblock %}
+
