@@ -20,9 +20,6 @@
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="{{ SITEURL }}/theme/js/functions.min.js"></script>
 
-  
-
-
   {% if FEED_ALL_ATOM %}
   <link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
   {% endif %}
@@ -136,12 +133,15 @@
         </span><!-- end of .site-name -->
 
       </div><!-- end of #logo -->
-      <div><!-- class = 'tagline' removed -->
-<!--         {% if TAGS_URL %}
+      <div class="tagline">
+        {% if TAGS_URL %}
         {% for tag, articles in tags|sort %}
         <a href="{{ SITEURL }}/{{ tag.url }}" {{ 'class="active"' if  output_file == tag.url }}>{{ tag }} ({{ articles|count }})</a> &#124; 
         {% endfor %}
-        {% endif %}  -->
+        {% endif %}
+        {% if ARCHIVES_URL %}
+        <a href="{{ SITEURL }}/{{ ARCHIVES_URL }}" {{ 'class="active"' if  output_file == ARCHIVES_URL }}>{{ 'Archives ('+ articles|count|string + ')' if  articles|count > all_articles|count  else 'Archives (' + all_articles|count|string + ')'}}</a>
+        {% endif %}
       </div>
     </div>
 
@@ -163,7 +163,7 @@
         </div><!-- #primary -->
       </div>
     </div><!-- close .row -->
-    <!-- Button trigger modal -->
+  <!-- Button trigger modal -->
     <div class="section" style="position:fixed;bottom:0;" id="show_button">
       <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
         Want to stay in touch? Subscribe to my newsletter!
@@ -197,8 +197,6 @@
     </div>
   </div><!-- close .container -->
 </div><!-- close .site-content -->
-
-
 
 
 <div id="footer-area">
@@ -265,7 +263,7 @@
     });
    });
  </script>
- <script type="text/javascript">
+  <script type="text/javascript">
     $("#show_button").on('click',function() {
         $(this).hide();  
     });
