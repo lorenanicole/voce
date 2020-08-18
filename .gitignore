@@ -1,1 +1,4 @@
+.idea/
 env/
+__py_cache__/
+.DS_Store
