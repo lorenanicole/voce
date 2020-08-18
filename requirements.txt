@@ -1,6 +1,6 @@
 # https://github.com/miracle2k/webassets/issues/462 for why use tarball instead!
 # http://github.com/miracle2k/webassets/tarball/master#egg=webassets-dev
-webassets
+# webassets
 cssmin==0.2.0
 #libsass==0.7.0 # G++ >= 4.8 needed to compile and NA on Debian wheezy
 pyScss==1.3.4 # API may change
@@ -9,3 +9,4 @@ slimit==0.8.1
 # Ply 3.6 has an issue that causes slimit to fail
 # https://github.com/dabeaz/ply/issues/63
 ply==3.4
+pelican_webassets
